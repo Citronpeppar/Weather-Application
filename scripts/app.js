@@ -63,3 +63,11 @@ cityForm.addEventListener('submit' , e => {
   localStorage.setItem('city' , city);
 
 });
+
+
+//Keeps last city in local storage
+if(localStorage.getItem('city')) {
+  updateCity(localStorage.getItem('city'))
+    .then(data => updateUI(data))
+    .catch(err => console.log(err))
+}
