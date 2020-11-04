@@ -13,12 +13,15 @@ const updateUI = (data) => {
   //Destructure properties
   const { cityDets, weather } = data;
 
+  let celsius = weather.Temperature.Metric.Value;
+  celsius = Math.round(celsius);
+
   //Update details template
   details.innerHTML = `
   <h5 class="my-3">${cityDets.EnglishName}</h5>
   <div class="my-3">${weather.WeatherText}</div>
   <div class="display-4 my-4">
-    <span>${weather.Temperature.Metric.Value}</span>
+    <span>${celsius}</span>
     <span>&deg;C</span>
   </div>`;
 
